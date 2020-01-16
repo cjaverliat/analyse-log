@@ -1,0 +1,32 @@
+@startuml
+
+class CompteurAccesURL {
+	#url : string
+	#hits : unsigned int
+	+CompteurAccesURL(string URL)
+	+operator<(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
+	+operator==(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
+	+operator>(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
+	+operator<<(ostream & os, const CompteurAccesURL & cu) friend : ostream &
+	+incremente() : void
+}
+
+class LogData {
+	#classement : set<CompteurAccesURL>
+	#urlToCompteur : map<string, CompteurAccesURL>
+	#cptRefererToCible : map<pair<string, string>, unsigned int>
+}
+
+class LecteurLog {
+	+lireFichierLog(LogData & ld, const string & nomFichier, const bool exclusion = false, const short heure = -1) static : void
+}
+
+class GenerateurGraphe {
+	+genererGraphe(const string & nomFichier,const LogData & ld) static : void
+}
+
+class AfficheurClassement {
+	+afficherClassement(const LogData & ld, const unsigned int n = 10, ostream & os = cout) static : void
+}
+
+@enduml

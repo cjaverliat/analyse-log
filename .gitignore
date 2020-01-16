@@ -1,0 +1,5 @@
+build
+bin/*
+run
+analyse-log.pro
+analyse-log.pro.user
