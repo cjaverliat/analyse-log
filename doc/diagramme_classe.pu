@@ -4,17 +4,14 @@ class CompteurAccesURL {
 	#url : string
 	#hits : unsigned int
 	+CompteurAccesURL(string URL)
-	+operator<(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
-	+operator==(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
-	+operator>(const CompteurAccesURL & cu1, const CompteurAccesURL & cu2) friend : bool
 	+operator<<(ostream & os, const CompteurAccesURL & cu) friend : ostream &
-	+incremente() : void
+	+incrementer() : void
 }
 
 class LogData {
-	#classement : set<CompteurAccesURL>
+	#compteursAccesURL : vector<CompteurAccesURL*>
 	#urlToCompteur : map<string, CompteurAccesURL>
-	#cptRefererToCible : map<pair<string, string>, unsigned int>
+	#compteurRefererToCible : map<pair<string, string>, unsigned int>
 }
 
 class LecteurLog {
