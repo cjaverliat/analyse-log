@@ -32,10 +32,9 @@ LOG_TEST_SRC = $(SRC_TEST_DIR)/test.cpp $(SRC)
 LOG_TEST_OBJ = $(OBJ_DIR)/test.o $(OBJ)
 
 all:
-	make analyse-log
+	make analog
 	@echo
-	@echo ">>> Pour lancer le programme principal: './bin/analyse-log'"
-	@echo ">>> Pour lancer les tests: './bin/analyse-log-test'"
+	@echo ">>> Pour lancer le programme principal: './bin/analog [-e] [-t heure] [-g nomGraphe.dot] <fichierLogs.log|fichierLogs.txt>'"
 
 doc:
 	make -B class-diagram
@@ -50,7 +49,7 @@ class-diagram: $(DOC_DIR)/diagramme_classe.pu
 $(DOC_DIR)/compte_rendu.tex:
 	./doc/build_latex.sh
 
-analyse-log: $(LOG_OBJ) $(HEADERS)
+analog: $(LOG_OBJ) $(HEADERS)
 	@mkdir -p bin
 	$(COMP) -o $(BIN_DIR)/$@ $(LOG_OBJ)
 
