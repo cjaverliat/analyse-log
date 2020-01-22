@@ -31,9 +31,7 @@ public:
   //----------------------------------------------------- Méthodes publiques
 
   static void lireLogs(const std::string & nomFichier,
-    URLToCptAccesURLAbsolu & urlToCptAbs,
-    URLsToCptAccesURLRelatif & urlsToCptRel,
-    std::vector<CompteurAccesURLAbsolu*> & listeCptAbs,
+    LogData & ld,
     const bool exclusionMedias,
     const short heure);
 

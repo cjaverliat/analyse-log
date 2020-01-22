@@ -99,12 +99,7 @@ static CompteurAccesURLRelatif & getCptAccesURLRelatif(const std::string & origi
   return cptRelIt->second;
 }
 
-void LecteurLog::lireLogs(const std::string & nomFichier,
-  URLToCptAccesURLAbsolu & urlToCptAbs,
-  URLsToCptAccesURLRelatif & urlsToCptRel,
-  std::vector<CompteurAccesURLAbsolu*> & listeCptAbs,
-  const bool exclusionMedias,
-  const short creneauHoraire)
+void LecteurLog::lireLogs(const std::string & nomFichier, LogData & ld, const bool exclusionMedias, const short creneauHoraire)
   {
 
     std::ifstream is(nomFichier);
@@ -112,7 +107,6 @@ void LecteurLog::lireLogs(const std::string & nomFichier,
     std::string cible;
 
     std::string line;
-
     if(is.is_open())
     {
       while(getline(is, line))
@@ -136,8 +130,8 @@ void LecteurLog::lireLogs(const std::string & nomFichier,
             std::string origineURL = results[10];
             nettoyerURL(origineURL);
 
-            CompteurAccesURLAbsolu & cptAbs = getCptAccesURLAbsolu(cibleURL, urlToCptAbs, listeCptAbs);
-            CompteurAccesURLRelatif & cptRel = getCptAccesURLRelatif(origineURL, cibleURL, urlsToCptRel);
+            CompteurAccesURLAbsolu & cptAbs = getCptAccesURLAbsolu(cibleURL, ld.urlToCompteur, ld.compteursAccesUrl);
+            CompteurAccesURLRelatif & cptRel = getCptAccesURLRelatif(origineURL, cibleURL, ld.compteurRefererToCible);
             cptAbs.incrementer();
             cptRel.incrementer();
           }

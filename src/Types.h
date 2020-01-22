@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include<vector>
 
 #include "CompteurAccesURLAbsolu.h"
 #include "CompteurAccesURLRelatif.h"
@@ -14,5 +15,14 @@ typedef std::map<std::string, CompteurAccesURLAbsolu> URLToCptAccesURLAbsolu;
 //Type définissant la relation entre la paire d'URL (origine et cible) et le nombre
 //de fois où on est parti de cette origine pour accéder à la cible
 typedef std::map<std::pair<std::string, std::string>, CompteurAccesURLRelatif> URLsToCptAccesURLRelatif;
+
+//Structure contenant les différents conteneurs de la STL utilisé pour analyser un fichier de log
+struct LogData
+{
+    URLToCptAccesURLAbsolu urlToCompteur; // Utilisé pour l'incrémentation du nombre d'accès à une url (accès direct)
+    URLsToCptAccesURLRelatif compteurRefererToCible; // Utilisé pour générer le graphique de trafic
+    std::vector<CompteurAccesURLAbsolu *> compteursAccesUrl; // Utilisé pour établir le classement des urls les plus visitées
+};
+
 
 #endif

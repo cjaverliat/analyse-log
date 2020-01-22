@@ -4,3 +4,5 @@ run
 *.o
 analyse-log.pro
 analyse-log.pro.user
+*.dot
+*.png
