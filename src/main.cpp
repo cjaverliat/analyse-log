@@ -12,11 +12,11 @@
 using namespace std;
 
 // Renvoie vrai si nomFic correspond bien à un nom de fichier fichier log ou txt
-bool verifNomFicLog(char * nomFic);
+bool verifNomFicLog(string nomFic);
 // Renvoie vrai si nomFic correspond bien à un nom de fichier dot
-bool verifOptionG (char * nomFicDot, char * nomFicLog);
+bool verifNomFicDot(string nomFic);
 // Renvoie vrai si les options du -g sont correct, ie un fichier .dot puis un fichier .log ou .txt
-bool verifOptionG (char * nomFicDot, char * nomFicLog);
+bool verifOptionG (string nomFicDot, string nomFicLog);
 // Renvoie vrai si snumber est composé exclusivement de chiffres
 bool stringComposedOfDigit (string snumber);
 // Renvoie vrai si sheure correspond bien à une heure au format 24h
@@ -166,7 +166,7 @@ int main(int argc, char ** argv)
     return 0;
 }
 
-bool verifNomFicLog(char * nomFic)
+bool verifNomFicLog(string nomFic)
 {
     regex nomFicLogRegex("^(\/?[A-Za-z0-9_\.]+)+.(txt|log)$");
     if (!regex_match(nomFic,nomFicLogRegex))
@@ -176,7 +176,7 @@ bool verifNomFicLog(char * nomFic)
     return true;
 }
 
-bool verifNomFicDot(char * nomFic)
+bool verifNomFicDot(string nomFic)
 {
     regex nomFicLogRegex("^[A-Za-z0-9_]+\.dot$");
     if (!regex_match(nomFic,nomFicLogRegex))
@@ -186,7 +186,7 @@ bool verifNomFicDot(char * nomFic)
     return true;
 }
 
-bool verifOptionG (char * nomFicDot, char * nomFicLog)
+bool verifOptionG (string nomFicDot, string nomFicLog)
 {
     if (!verifNomFicLog(nomFicLog) || !verifNomFicDot(nomFicDot))
     {
