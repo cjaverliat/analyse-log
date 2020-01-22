@@ -25,7 +25,7 @@ e-mail               : charles.javerliat@insa-lyon.fr et fabien.narboux@insa-lyo
 void CompteurAccesURLAbsolu::incrementer()
 {
   ++nbAcces;
-} //----- Fin de incremente
+} //----- Fin de incrementer
 
 
 std::ostream & operator<<(std::ostream & os, const CompteurAccesURLAbsolu & c )

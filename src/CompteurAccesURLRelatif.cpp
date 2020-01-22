@@ -25,7 +25,7 @@ e-mail               : charles.javerliat@insa-lyon.fr et fabien.narboux@insa-lyo
 void CompteurAccesURLRelatif::incrementer()
 {
   ++nbAcces;
-} //----- Fin de incremente
+} //----- Fin de incrementer
 
 unsigned int CompteurAccesURLRelatif::getNbAcces() const
 {
