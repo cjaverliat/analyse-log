@@ -1,0 +1,1 @@
+../../bin/analog -g nomGraphe1.dot -g nomGraphe2.dot fichierLogs.log
